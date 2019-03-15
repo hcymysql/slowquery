@@ -30,19 +30,24 @@ agent客户端慢日志采集分析是结合Percona pt-query-digest工具来实�
 
 工具搭建配置
 1、移动到web目录
-# mv  slowquery  /var/www/html/
+mv  slowquery  /var/www/html/
 
 2、进入到slowquery/slowquery_table_schema目录下
+
 导入dbinfo_table_schema.sql和slowquery_table_schema.sql表结构文件到你的运维管理机MySQL里。
+
 （注：dbinfo表是保存生产MySQL主库的配置信息。）
+
 例：
-# mysql -uroot -p123456 sql_db < ./dbinfo_table_schema.sql
-# mysql -uroot -p123456 sql_db < ./slowquery_table_schema.sql 
+mysql -uroot -p123456 sql_db < ./dbinfo_table_schema.sql
+
+mysql -uroot -p123456 sql_db < ./slowquery_table_schema.sql 
 
 录入你要监控的MySQL主库配置信息
+
 例：
-mysql> INSERT INTO sql_db.dbinfo VALUES 
-(1,'192.168.148.101','test','admin','123456',3306);
+
+mysql> INSERT INTO sql_db.dbinfo VALUES (1,'192.168.148.101','test','admin','123456',3306);
 
 3、修改配置文件config.php，将里面的配置改成你的运维管理机MySQL的地址（用户权限最好是管理员）
 
