@@ -29,7 +29,9 @@ agent客户端慢日志采集分析是结合Percona pt-query-digest工具来实�
 ![image](https://github.com/hcymysql/slowquery/blob/master/2.png)
 
 工具搭建配置
+
 1、移动到web目录
+
 mv  slowquery  /var/www/html/
 
 2、进入到slowquery/slowquery_table_schema目录下
@@ -68,4 +70,4 @@ mysql> INSERT INTO sql_db.dbinfo VALUES (1,'192.168.148.101','test','admin','123
 
 0 */3 * * * cd /var/www/html/slowquery/alarm_mail;/usr/bin/php  /var/www/html/slowquery/alarm_mail/sendmail.php > /dev/null 2>&1
 
-
+![image](https://github.com/hcymysql/slowquery/blob/master/3.png)
