@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>慢SQL执行时间统计图</title>
+    <script src="js/echarts.common.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+$(document).ready(function () { 
+
+if(location.href.indexOf("#reloaded")==-1){ 
+
+	location.href=location.href+"#reloaded"; 
+	location.reload(); 
+} 
+})
+</script>
+    <!-- <h1 align='center' class='STYLE2'>慢SQL执行时间</h1>
+    <hr /> -->
+    <!-- <div id="main" style="width: 1600px;height:400px"></div> -->
+    <div id="main" style="height:400px"></div>
+    <script type="text/javascript">
+              var  myChart = echarts.init(document.getElementById('main'));
+              var arr1=[],arr2=[];
+              function arrTest(){
+                $.ajax({
+                  type:"post",
+                  async:false,
+		  url:"get_graph_data.php",
+                  data:{},
+                  dataType:"json",
+                  success:function(result){
+                    if (result) {
+                      for (var i = 0; i < result.length; i++) {
+                          arr1.push(result[i].last_seen);
+			  arr2.push(result[i].Query_time_max);
+                      }
+                    }
+                  }
+                })
+                return arr1,arr2;
+              }
+              arrTest();
+              var  option = {
+		    title: {
+			text: '慢查询分析',
+		        //backgroundColor: 'FFFFFF'
+		    },
+                    tooltip: {
+			trigger: 'axis'
+                        //show: true
+                    },
+                    legend: {
+                       data:['慢SQL执行时间']
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data : arr1
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+			    axisLabel: {
+				formatter:'{value}(秒)'
+                            }
+			}
+                    ],
+                    series : [
+                        {
+                            "name":"慢SQL执行时间",
+                            //"type":"bar",
+			    "type":"line",
+			    "smooth": "true",
+                            "data":arr2,
+			    stack: '秒',
+			    areaStyle: {
+				normal: {
+				    color: '#8cd5c2' //改变区域颜色
+				}	
+			    },
+			    itemStyle : {
+			    normal : { 
+			        color:'#8cd5c2',
+			        lineStyle: {
+					color: '#3300FF',
+					width: 3,
+			    }}}
+                        }
+                    ]
+                };
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+            // }
+    </script>
+</body>
