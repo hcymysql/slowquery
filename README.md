@@ -70,4 +70,4 @@ mysql> INSERT INTO sql_db.dbinfo VALUES (1,'192.168.148.101','test','admin','123
 
 0 */3 * * * cd /var/www/html/slowquery/alarm_mail;/usr/bin/php  /var/www/html/slowquery/alarm_mail/sendmail.php > /dev/null 2>&1
 
-![image](https://github.com/hcymysql/slowquery/blob/master/3.png)
+![image](https://github.com/hcymysql/slowquery/blob/master/6.png)
