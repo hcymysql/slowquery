@@ -1,7 +1,7 @@
 # slowquery
 Slowquery图形化显示MySQL慢日志工具
 
-在线演示：http://fander.jios.org:8008/slowquery/slowquery.php
+在线演示：http://fander.asuscomm.com:8008/slowquery/slowquery.php
 
 背景：由于天兔Lepus慢查询工具是运行在PHP CI框架里，而不是作为一个独立的web页面接口，所以想直接接入自动化运维平台里，移植代码比较困难，固考虑重构。
 
