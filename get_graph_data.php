@@ -16,23 +16,20 @@ GROUP BY r.checksum
 ORDER BY r.last_seen ASC,ts_cnt DESC");
     */
 
-    $result_echarts = mysqli_query($con,"SELECT r.checksum,r.fingerprint,h.db_max,h.user_max,r.last_seen,h.Query_time_max AS Query_time_max
-FROM mysql_slow_query_review AS r JOIN mysql_slow_query_review_history AS h
-ON r.checksum=h.checksum
-WHERE db_max = 'nirvana' AND r.last_seen >= SUBDATE(NOW(),INTERVAL 1 DAY)
-ORDER BY r.last_seen ASC,ts_cnt DESC");
+  $result_echarts = mysqli_query($con,"SELECT ts_max,Query_time_max FROM mysql_slow_query_review_history
+WHERE db_max = 'nirvana' AND ts_max >= DATE_FORMAT(DATE_SUB(NOW(),INTERVAL 1 DAY),'%Y-%m-%d')");
 
     $data="";
     $array=array();
 
     class User{
-    	public $last_seen;
+    	public $ts_max;
     	public $Query_time_max;
     }
 
     while($row = mysqli_fetch_array($result_echarts,MYSQL_ASSOC)){
     	$user=new User();
-    	$user->last_seen = $row['last_seen'];
+    	$user->ts_max = $row['ts_max'];
     	$user->Query_time_max = $row['Query_time_max'];
     	$array[]=$user;
     }

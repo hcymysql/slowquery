@@ -33,7 +33,7 @@ if(location.href.indexOf("#reloaded")==-1){
                   success:function(result){
                     if (result) {
                       for (var i = 0; i < result.length; i++) {
-                          arr1.push(result[i].last_seen);
+                          arr1.push(result[i].ts_max);
 			  arr2.push(result[i].Query_time_max);
                       }
                     }
