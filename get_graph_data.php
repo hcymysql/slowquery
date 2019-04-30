@@ -17,7 +17,7 @@ ORDER BY r.last_seen ASC,ts_cnt DESC");
     */
 
   $result_echarts = mysqli_query($con,"SELECT ts_max,Query_time_max FROM mysql_slow_query_review_history
-WHERE db_max = 'nirvana' AND ts_max >= DATE_FORMAT(DATE_SUB(NOW(),INTERVAL 1 DAY),'%Y-%m-%d')");
+WHERE db_max = '${dbname}' AND ts_max >= DATE_FORMAT(DATE_SUB(NOW(),INTERVAL 1 DAY),'%Y-%m-%d')");
 
     $data="";
     $array=array();
