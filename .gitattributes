@@ -1,3 +1,5 @@
-*.perl linguist-language=PHP
-*.PERL linguist-language=PHP
-*.pl linguist-language=PHP
+*.pl linguist-language=php
+*.html linguist-language=php
+*.js linguist-language=php
+*.css linguist-language=php
+*.php linguist-language=php
