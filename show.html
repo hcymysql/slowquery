@@ -68,6 +68,15 @@ if(location.href.indexOf("#reloaded")==-1){
                             }
 			}
                     ],
+
+                    dataZoom: [
+                          {   
+                                type: 'slider', 
+                                start: 100,      
+                                end: 80         
+                           }
+                    ],
+		    
                     series : [
                         {
                             "name":"慢SQL执行时间",

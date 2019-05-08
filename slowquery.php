@@ -138,8 +138,8 @@ ORDER BY r.last_seen DESC,ts_cnt DESC LIMIT $startCount,$perNumber";
     }
 
     $result = mysqli_query($con,$sql);
-
-    echo "慢查询日志agent采集阀值是每10分钟/次，SQL执行时间（单位：秒）</br>";
+	
+    echo "<br> 慢查询日志agent采集阀值是每10分钟/次，SQL执行时间（单位：秒）</br>";
 
     require 'SqlFormatter.php';
 
