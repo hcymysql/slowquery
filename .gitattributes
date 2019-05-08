@@ -1,0 +1,3 @@
+*.perl linguist-language=PHP
+*.PERL linguist-language=PHP
+*.pl linguist-language=PHP
