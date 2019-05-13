@@ -3,7 +3,7 @@
 
     if($_GET['action'] == "logout"){  
         unset($_SESSION['transmit_dbname']);  
-	exit('<script>top.location.href="slowquery.php"</script>');
+	//exit('<script>top.location.href="slowquery.php"</script>');
     }     
 ?>
 
@@ -55,10 +55,16 @@ return true;
 	<option value="">选择你的数据库</option>
 	<?php
         	require 'config.php';
-		$result = mysqli_query($con,"SELECT dbname FROM dbinfo");
+		$result = mysqli_query($con,"SELECT dbname FROM dbinfo order by dbname ASC");
 		while($row = mysqli_fetch_array($result)){
-			echo "<option value=\"".$row[0]."\">".$row[0]."</option>"."<br>";
-    		}
+		    if(isset($_POST['dbname']) || isset($_GET['dbname'])){
+			if($_POST['dbname'] == $row[0] || $_GET['dbname'] == $row[0]){
+			    echo "<option selected='selected' value=\"".$row[0]."\">".$row[0]."</option>"."<br>";
+			} else {
+			    echo "<option value=\"".$row[0]."\">".$row[0]."</option>"."<br>";
+			}
+		    } else{ echo "<option value=\"".$row[0]."\">".$row[0]."</option>"."<br>";}
+		}
     	?>
         </select><td>
     </tr>
@@ -101,7 +107,7 @@ return true;
 
 <?php
       session_start();
-	$dbname=$_SESSION['transmit_dbname'];
+	$select_dbname=$_SESSION['transmit_dbname'];
     require 'config.php';
     $perNumber=50; //每页显示的记录数  
     $page=$_GET['page']; //获得当前的页面值  
@@ -116,13 +122,13 @@ return true;
 
     $startCount=($page-1)*$perNumber; //分页开始,根据此方法计算出开始的记录 
 
-    if(!empty($dbname)){
+    if(!empty($select_dbname)){
 	$sql = "SELECT r.checksum,r.fingerprint,h.db_max,h.user_max,r.last_seen,SUM(h.ts_cnt) AS ts_cnt,
 ROUND(MIN(h.Query_time_min),3) AS Query_time_min,ROUND(MAX(h.Query_time_max),3) AS Query_time_max,
 ROUND(SUM(h.Query_time_sum)/SUM(h.ts_cnt),3) AS Query_time_avg,r.sample
 FROM mysql_slow_query_review AS r JOIN mysql_slow_query_review_history AS h
 ON r.checksum=h.checksum
-WHERE h.db_max = '${dbname}'
+WHERE h.db_max = '${select_dbname}'
 AND r.last_seen >= SUBDATE(NOW(),INTERVAL 31 DAY)
 GROUP BY r.checksum
 ORDER BY r.last_seen DESC,ts_cnt DESC LIMIT $startCount,$perNumber";
