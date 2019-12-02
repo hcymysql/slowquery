@@ -22,7 +22,7 @@
 	require 'SqlFormatter.php';
 	$checksum=$_GET['checksum'];
 	require 'config.php';
-	$get_sql = "select sample,db_max from mysql_slow_query_review_history where checksum=${checksum} limit 1";
+	$get_sql = "select sample,db_max from mysql_slow_query_review_history where checksum='${checksum}' limit 1";
 	$result1 = mysqli_query($con,$get_sql);
 	list($sample_sql,$db_max_name) = mysqli_fetch_array($result1);
 	echo "<tr><td>" .SqlFormatter::format($sample_sql) ."</tr></td>";
