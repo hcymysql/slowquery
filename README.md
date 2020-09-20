@@ -68,4 +68,4 @@ mysql -uroot -p123456 sql_db < ./slowquery_table_schema.sql
 
     0 */3 * * * cd /var/www/html/slowquery/alarm_mail;/usr/bin/php  /var/www/html/slowquery/alarm_mail/sendmail.php > /dev/null 2>&1
 
-![image](https://github.com/hcymysql/slowquery/blob/master/6.png)
+![image](https://dbaplus.cn/uploadfile/2019/0320/20190320101826150.jpg)
