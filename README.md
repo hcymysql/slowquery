@@ -47,7 +47,7 @@ mysql -uroot -p123456 sql_db < ./slowquery_table_schema.sql
 
 例：
 
-mysql> INSERT INTO sql_db.dbinfo VALUES (1,'192.168.148.101','test','admin','123456',3306);
+    mysql> INSERT INTO sql_db.dbinfo VALUES (1,'192.168.148.101','test','admin','123456',3306);
 
 3、修改配置文件config.php，将里面的配置改成你的运维管理机MySQL的地址（用户权限最好是管理员）
 
@@ -58,7 +58,7 @@ mysql> INSERT INTO sql_db.dbinfo VALUES (1,'192.168.148.101','test','admin','123
 
 定时任务（10分钟一次）
 
-*/10 * * * * /bin/bash /usr/local/bin/slowquery_analysis.sh > /dev/null 2>&1
+    */10 * * * * /bin/bash /usr/local/bin/slowquery_analysis.sh > /dev/null 2>&1
 
 6、别的就没啥配置的了，直接打开浏览器访问slowquery.php就OK了。
 
@@ -66,6 +66,6 @@ mysql> INSERT INTO sql_db.dbinfo VALUES (1,'192.168.148.101','test','admin','123
 
 定时任务（每隔3小时慢查询报警推送一次）
 
-0 */3 * * * cd /var/www/html/slowquery/alarm_mail;/usr/bin/php  /var/www/html/slowquery/alarm_mail/sendmail.php > /dev/null 2>&1
+    0 */3 * * * cd /var/www/html/slowquery/alarm_mail;/usr/bin/php  /var/www/html/slowquery/alarm_mail/sendmail.php > /dev/null 2>&1
 
 ![image](https://github.com/hcymysql/slowquery/blob/master/6.png)
