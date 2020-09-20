@@ -23,8 +23,8 @@ agent客户端慢日志采集分析是结合Percona pt-query-digest工具来实�
     
     6、配置邮件报警
     
-![image](https://github.com/hcymysql/slowquery/blob/master/1.png)
-![image](https://github.com/hcymysql/slowquery/blob/master/2.png)
+![image](https://dbaplus.cn/uploadfile/2019/0320/20190320101709165.jpg)
+![image](https://dbaplus.cn/uploadfile/2019/0320/20190320101724428.jpg)
 
 工具搭建配置
 
