@@ -67,6 +67,10 @@ mysql -uroot -p123456 sql_db < ./slowquery_table_schema.sql
 
 6、别的就没啥配置的了，直接打开浏览器访问slowquery.php就OK了。
 
+http://yourIP/slowquery/slowquery.php
+
+加一个超链接，可方便地接入你们的自动化运维平台里。
+
 7、慢查询邮件推送报警配置。进入到slowquery/alarm_mail/目录里，修改sendmail.php配置信息
 
 定时任务（每隔3小时慢查询报警推送一次）
