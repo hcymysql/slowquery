@@ -31,7 +31,7 @@ agent客户端慢日志采集分析是结合Percona pt-query-digest工具来实�
 ![image](https://dbaplus.cn/uploadfile/2019/0320/20190320101739345.png)
 ![image](https://dbaplus.cn/uploadfile/2019/0320/20190320101808544.jpg)
 
-工具搭建配置
+# 工具搭建配置
 
 1、移动到web目录
 
