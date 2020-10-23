@@ -1,5 +1,5 @@
 CREATE TABLE `mysql_slow_query_review` (
-  `checksum` bigint(20) unsigned NOT NULL,
+  `checksum` varchar(200) NOT NULL,
   `fingerprint` text NOT NULL,
   `sample` text NOT NULL,
   `first_seen` datetime DEFAULT NULL,
