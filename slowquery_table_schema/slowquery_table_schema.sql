@@ -16,7 +16,7 @@ CREATE TABLE `mysql_slow_query_review_history` (
   `serverid_max` smallint(4) NOT NULL DEFAULT '0',
   `db_max` varchar(100) DEFAULT NULL,
   `user_max` varchar(100) DEFAULT NULL,
-  `checksum` bigint(20) unsigned NOT NULL,
+  `checksum` varchar(200) NOT NULL,
   `sample` text NOT NULL,
   `ts_min` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `ts_max` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
