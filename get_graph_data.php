@@ -27,7 +27,7 @@ WHERE db_max = '${dbname}' AND ts_max >= DATE_FORMAT(DATE_SUB(NOW(),INTERVAL 1 D
     	public $Query_time_max;
     }
 
-    while($row = mysqli_fetch_array($result_echarts,MYSQL_ASSOC)){
+    while($row = mysqli_fetch_array($result_echarts,MYSQLI_ASSOC)){
     	$user=new User();
     	$user->ts_max = $row['ts_max'];
     	$user->Query_time_max = $row['Query_time_max'];
