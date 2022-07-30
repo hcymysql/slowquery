@@ -17,7 +17,7 @@ GROUP BY tmp.db_max");
     	public $top_count;
     }
 
-    while($row = mysqli_fetch_array($result_echarts,MYSQL_ASSOC)){
+    while($row = mysqli_fetch_array($result_echarts,MYSQLI_ASSOC)){
     	$user=new User();
     	$user->db_max = $row['db_max'];
     	$user->top_count = $row['top_count'];
