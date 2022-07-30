@@ -13,7 +13,7 @@ agent客户端慢日志采集分析是结合Percona pt-query-digest工具来实�
     
     2、php web mysql环境的搭建
     
-    # yum install httpd mysql php php-mysql -y
+    # yum install httpd mysql php php-mysqlnd -y
     
     3、安装Slowquery并配置
     
