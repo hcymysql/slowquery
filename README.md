@@ -35,7 +35,7 @@ agent客户端慢日志采集分析是结合Percona pt-query-digest工具来实�
 
 1、移动到web目录
 
-mv  slowquery  /var/www/html/
+    mv  slowquery  /var/www/html/
 
 2、进入到slowquery/slowquery_table_schema目录下
 
@@ -44,9 +44,9 @@ mv  slowquery  /var/www/html/
 （注：dbinfo表是保存生产MySQL主库的配置信息。）
 
 例：
-mysql -uroot -p123456 sql_db < ./dbinfo_table_schema.sql
+    mysql -uroot -p123456 sql_db < ./dbinfo_table_schema.sql
 
-mysql -uroot -p123456 sql_db < ./slowquery_table_schema.sql 
+    mysql -uroot -p123456 sql_db < ./slowquery_table_schema.sql 
 
 录入你要监控的MySQL主库配置信息
 
