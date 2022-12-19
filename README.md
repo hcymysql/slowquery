@@ -57,7 +57,6 @@ mysql -uroot -p123456 sql_db < ./slowquery_table_schema.sql
 3、修改配置文件config.php，将里面的配置改成你的运维管理机MySQL的地址（用户权限最好是管理员）
 
 4、修改配置文件soar_con.php，将里面的配置改成你的运维管理机MySQL的地址（用户权限最好是管理员）
-例：
 
 5、进入到slowquery/client_agent_script目录下，把slowquery_analysis.sh脚本拷贝到生产MySQL主库上做慢日志分析推送，并修改里面的配置信息
 
