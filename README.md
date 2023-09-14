@@ -78,3 +78,22 @@ http://yourIP/slowquery/slowquery.php
     0 */3 * * * cd /var/www/html/slowquery/alarm_mail;/usr/bin/php  /var/www/html/slowquery/alarm_mail/sendmail.php > /dev/null 2>&1
 
 ![image](https://dbaplus.cn/uploadfile/2019/0320/20190320101826150.jpg)
+
+-------------------------------------------
+### 2023年9月13日更新: 用自研的[sql_helper](https://github.com/hcymysql/sql_helper/tree/sql_helper_1.1)替换掉soar，无需部署，直接拉取docker pull slowquery即可。
+
+服务端
+# 拉取镜像
+```
+shell> docker pull docker.io/hcymysql/slowquery:2023-09-13
+```
+# 启动
+```
+shell> docker run -itd -e "TERM=xterm-256color" --privileged --name slowquery -p 80:80 -p 3306:3306 <IMAGE ID> /usr/sbin/init
+```
+### 打开浏览器，输入http://yourIP/slowquery/slowquery.php
+
+# 进入docker里
+```
+shell> docker exec -it slowquery /bin/bash 
+```
