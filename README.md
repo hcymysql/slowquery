@@ -93,9 +93,10 @@ shell> docker pull docker.io/hcymysql/slowquery:2023-09-13
 ```
 shell> docker run -itd -e "TERM=xterm-256color" --privileged --name slowquery -p 80:80 -p 3306:3306 <IMAGE ID> /usr/sbin/init
 ```
-### 打开浏览器，输入http://yourIP/slowquery/slowquery.php
 
-# 进入docker里
+# 进入docker里，启动httpd服务
 ```
-shell> docker exec -it slowquery /bin/bash 
+shell> docker exec -it slowquery /bin/bash
+shell> systemctl start httpd.service 
 ```
+### 打开浏览器，输入http://yourIP/slowquery/slowquery.php
