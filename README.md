@@ -94,9 +94,32 @@ shell> docker pull docker.io/hcymysql/slowquery:2023-09-13
 shell> docker run -itd -e "TERM=xterm-256color" --privileged --name slowquery -p 80:80 -p 3306:3306 <IMAGE ID> /usr/sbin/init
 ```
 
-# 进入docker里，启动httpd服务
+进入docker里，启动httpd服务
 ```
 shell> docker exec -it slowquery /bin/bash
 shell> systemctl start httpd.service 
 ```
+
+录入你要监控的MySQL主库配置信息
+
+```mysql> INSERT INTO slowquery.dbinfo VALUES (1,'192.168.148.101','test','admin','123456',3306);```
+
+客户端部署
+
+进入到slowquery/client_agent_script目录下，把slowquery_analysis.sh脚本拷贝到生产MySQL主库上做慢日志分析推送，并修改里面的配置信息
+
+定时任务（10分钟一次）
+
+```*/10 * * * * /bin/bash /usr/local/bin/slowquery_analysis.sh > /dev/null 2>&1```
+
 ### 打开浏览器，输入http://yourIP/slowquery/slowquery.php
+
+慢查询邮件推送报警配置
+
+进入到slowquery/alarm_mail/目录里，修改sendmail.php配置信息
+
+定时任务（每隔3小时慢查询报警推送一次）
+
+```0 */3 * * * cd /var/www/html/slowquery/alarm_mail;/usr/bin/php  /var/www/html/slowquery/alarm_mail/sendmail.php```
+
+​
