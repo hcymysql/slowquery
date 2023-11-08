@@ -1,5 +1,5 @@
 # slowquery
-Slowquery图形化显示MySQL慢日志工具
+Slowquery图形化显示MySQL慢日志工具       https://www.oschina.net/p/slowquery
 
 视频演示：https://www.douyin.com/video/7278552026181586216
 
