@@ -82,6 +82,11 @@ http://yourIP/slowquery/slowquery.php
 ![image](https://dbaplus.cn/uploadfile/2019/0320/20190320101826150.jpg)
 
 -------------------------------------------
+### 2024年7月4日更新：集成sqlai_helper（支持SQL改写，合并LLM模型接口）
+- 服务端拉取镜像（夸克网盘） https://pan.quark.cn/s/4b01a98d5a1e
+### 导入镜像
+```docker load -i slowquey.tar```
+--------------------
 ### 2023年9月13日更新: 用自研的[sql_helper](https://github.com/hcymysql/sql_helper/tree/sql_helper_1.1)替换掉soar，无需部署，直接拉取docker pull slowquery即可。
 
 服务端
