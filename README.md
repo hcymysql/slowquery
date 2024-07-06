@@ -82,7 +82,7 @@ http://yourIP/slowquery/slowquery.php
 ![image](https://dbaplus.cn/uploadfile/2019/0320/20190320101826150.jpg)
 
 -------------------------------------------
-### 2024年7月4日更新：集成sqlai_helper（支持SQL改写，合并LLM模型接口）
+# 2024年7月4日更新：集成sqlai_helper（支持SQL改写，合并LLM模型接口）
 - 服务端拉取镜像（夸克网盘） https://pan.quark.cn/s/4b01a98d5a1e
 ### 导入镜像
 ```docker load -i slowquey.tar```
