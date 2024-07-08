@@ -83,9 +83,8 @@ http://yourIP/slowquery/slowquery.php
 
 -------------------------------------------
 # 2024年7月4日更新：集成sqlai_helper（支持SQL改写，合并LLM模型接口）
-- 服务端拉取镜像（夸克网盘） https://pan.quark.cn/s/4b01a98d5a1e
-### 导入镜像
-```docker load -i slowquey.tar```
+### 将最新的 [slowquery.tgz](https://github.com/hcymysql/slowquery/releases/download/slowquery_v20240704/slowquery.tgz) 文件拷贝至hcymysql/slowquery:2023-09-13（镜像里），并解压缩至/var/www/html目录下，把之前老版本的slowquery目录改名。
+
 --------------------
 ### 2023年9月13日更新: 用自研的[sql_helper](https://github.com/hcymysql/sql_helper/tree/sql_helper_1.1)替换掉soar，无需部署，直接拉取docker pull slowquery即可。
 
